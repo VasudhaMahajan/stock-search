@@ -1,0 +1,49 @@
+<div class="container ">
+   <div class="mt-5 mb-5 text-dark rounded">
+      <div class="h1">
+         My Watchlist
+      </div>
+   </div>
+
+   <ngb-alert class="text-center" [type]="alert.type" [dismissible]=false *ngIf="alert.message" (closed)="alert.message = ''"> 
+      {{ alert.message }}
+   </ngb-alert>
+
+   <div *ngIf="!alert.message">
+      <div *ngFor="let w of watchlist">
+         <div class="card mt-3">
+            <div class="card-body p-0">
+               <h5 class="card-title m-0 p-0 text-end">
+                  <!-- <button class="btn" style="padding: 0;"(click)="removefromwatchlist(w.symbol)">
+                     <i class="bi bi-x"></i>
+                  </button> -->
+
+                  <button type="button" class="btn p-0" (click)="removefromwatchlist(w.symbol)">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" class="bi bi-x"
+                        viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                     </svg>
+                  </button>
+
+               </h5>
+               <div class="card-text ps-4 pe-4 pb-4">
+                  <div class="row ">
+                     <div class="h3 col-6 pe-0 text-start mb-2" routerLink="/search/{{w.symbol}}">{{w.symbol}}</div>
+                     <div class="h3 col-6 ps-0 text-end mb-2" [ngClass]="{ 'positive' : w.dp > 0, 'negative' : w.dp < 0}">
+                        {{w.c.toFixed(2)}}
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="h5 col-6 pe-0  text-start mb-0">{{w.symbolname}}</div>
+                     <div class="h5 col-6 ps-0 text-end mb-0" [ngClass]="{ 'positive' : w.dp > 0,'negative' : w.dp < 0}">
+                        <i class="bi bi-caret-up-fill" style="color:green" *ngIf="w.dp > 0"></i>
+                        <i class="bi bi-caret-down-fill" style="color:red" *ngIf="w.dp < 0"></i>
+                        {{w.d.toFixed(2)}} ({{w.dp.toFixed(2)}}%)
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

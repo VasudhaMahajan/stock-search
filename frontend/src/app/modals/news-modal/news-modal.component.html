@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <!-- <h1 class="modal-title">{{newsModalInfo.source}}</h1><br>
+    <div class="text-black-50 m-0">{{datetime}}</div> -->
+  <div class="modal-title" id="modal-basic-title">
+    <div class="h2 m-0">{{ newsModalInfo.source }}</div>
+    <div class="text-muted h6 mb-0">
+      {{ datetime }}
+    </div>
+  </div>
+  <button type="button" class="btn-close mb-4" aria-label="Close" (click)="closeModal('dismiss')" ></button>
+  <!-- <button class="close" mat-button data-dismiss="modal" (click)="closeModal('dismiss')">
+        <span aria-hidden="true">&times;</span>
+    </button> -->
+  <!-- <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+    </button> -->
+    <!-- <a  type="button" aria-label="Close" class="close" data-dismiss="modal"
+    (click)="closeModal('dismiss')">
+    <span  aria-hidden="true">×</span>
+  </a> -->
+  <!-- <mat-icon (click)="closeModal('dismiss')">close</mat-icon> -->
+</div>
+
+<div class="modal-body">
+  <div class="h5 mb-0"> {{newsModalInfo.headline}} </div>
+
+  <p class="mb-0"> {{newsModalInfo.summary}} </p>
+  
+  <div class="text-muted mb-5">For more details click 
+    <a href="{{newsModalInfo.url}}" target="_blank" style="text-decoration: none;"> here</a></div>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Share</h3>
+<!-- 
+      <share-buttons theme="modern-light" class="pt-0" [include]="['twitter', 'facebook']" [showIcon]="true"
+        [showText]="false" url={{newsModalInfo.url}} description={{newsModalInfo.headline}} twitterAccount="rodrigokamada">
+      </share-buttons> -->
+
+      <a href="https://twitter.com/intent/tweet?url={{newsModalInfo.url}}&text={{newsModalInfo.headline}}" class="lh-1 m-0"
+        type="button" role="button" data-show-count="false" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-twitter" width="40" height="40"  viewBox="0 0 512 512">
+          <path fill="#24a4f3" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+        </svg>
+      </a>
+
+      <a class="btn-floating btn btn-tw btn-facebook m-0" title="Share on facebook" type="button" role="button"
+        href="https://www.facebook.com/sharer/sharer.php?u={{newsModalInfo.url}}&text={{newsModalInfo.headline}}" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px" height="40px">
+          <path fill="#2516f5" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+
+</div>
+<!-- <div class="modal-footer"> -->
+
+<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('close')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="closeModal('changes saved!')">Save changes</button> -->
+<!-- </div> -->

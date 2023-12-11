@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <div class="modal-title" id="modal-basic-title">
+        <h1 class="m-0">{{symbol}}</h1>
+    </div>
+    <button type="button" class="mb-1 btn-close" aria-label="Close" data-dismiss="modal" (click)="closeModal()"></button>
+</div>
+
+<div class="modal-body">
+    <div> Current Price: {{resultprices.c.toFixed(2)}} </div>
+    <div> Money in Wallet: {{moneyInWallet.toFixed(2)}} </div>
+    <div>
+        <form class="d-flex">
+            <div class="form-group">
+                <div>
+                    <table>
+                        <tr>
+                            <td class="pe-1">Quantity </td>
+                            <td>
+                                <input id="inpQty" [formControl]="myControl" type="number" placeholder="0" min="0" class="form-control">
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <div class="col-3">Quantity:</div>
+                    <div class="col-9">
+                        <input id="inpQty" [formControl]="myControl" type="number" placeholder="0" min="0" class="form-control">
+                    </div> -->
+                </div>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="cannotbuyorsell" style="color: red;" class="mt-1">
+        {{cannotbuyorsell}}
+    </div>
+</div>
+<div class="modal-footer justify-content-start ">
+    <span>Total: {{(updatedQuantity * resultprices.c).toFixed(2)}}</span>
+    <div *ngIf="buySell == 'buy'"  class="ms-auto">
+        <button type="button" class="btn btn-success" [disabled]="disabled" (click)="closeModalBuySell('buy')">Buy</button>
+    </div>
+    <div *ngIf="buySell == 'sell'" class="ms-auto">
+        <button type="button" class="btn btn-danger" [disabled]="disabled" (click)="closeModalBuySell('sell')">Sell</button>
+    </div>
+    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('close')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="closeModal('changes saved!')">Save changes</button> -->
+</div>

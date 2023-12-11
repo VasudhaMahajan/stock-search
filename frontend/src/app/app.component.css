@@ -1,0 +1,14 @@
+.active{
+    border: 1px solid white;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 7px;
+}
+
+
+:host {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: rgb(51, 50, 50);
+    box-sizing: border-box;
+  }

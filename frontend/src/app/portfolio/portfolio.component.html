@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="pt-5">
+    <ngb-alert #selfClosingAlert *ngIf="successMessage" type="{{alertcolor}}" (closed)="successMessage = ''"
+      class="text-center">
+      {{ successMessage }}
+    </ngb-alert>
+    <span class="h1">
+      My Portfolio
+    </span>
+  </div>
+  <div class="py-3">
+    <span class="h3"> Money in Wallet: ${{moneyInWallet.toFixed(2)}}</span>
+  </div>
+  <div>
+    <ngb-alert class="text-center alert" style="color: #2b3136" [type]="alert.type" [dismissible]=false
+      *ngIf="alert.message" (closed)="alert.message = ''"> {{ alert.message }}</ngb-alert>
+  </div>
+  <div class="row m-auto">
+    <div class="mt-4 p-0 text-dark rounded">
+      <div>
+        <div *ngFor="let lsp of localstoragePortfolio; let i = index">
+          <div class="card mb-3">
+            <div class="card-header">
+              <span class="h3 text-left">{{lsp.folioTicker}} </span>
+              <span class="h5 text-muted">{{lsp.symbolname}}</span>
+            </div>
+            <div class="card-body h5 mb-0">
+              <div class="row " >
+                <div class="col-sm-6">
+                  <table class="table table-borderless mb-0" >
+                    <tr>
+                      <td>Quantity:</td>
+                      <td class="text-end">{{lsp.quantity.toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                      <td>Avg. Cost / Share:</td>
+                      <td class="text-end">{{(lsp.costPerShare).toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                      <td>Total Cost:</td>
+                      <td class="text-end">{{(lsp.totalCost).toFixed(2)}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-sm-6">
+                  <table class="table table-borderless mb-0">
+                    <tr>
+                      <td>Change:</td>
+                      <td class="text-end" [ngClass]="{ 'positive' : lsp.change > 0,'negative' :  lsp.change < 0}">
+                        <i class="bi bi-caret-up-fill pe-0" style="color:green" *ngIf="lsp.change > 0"></i>
+                        <i class="bi bi-caret-down-fill pe-0" style="color:red" *ngIf="lsp.change < 0"></i>
+                        {{(lsp.change).toFixed(2)}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Current Price:</td>
+                      <td class="text-end" [ngClass]="{ 'positive' : lsp.change > 0,'negative' :  lsp.change < 0}">{{lsp.currentPrice.toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                      <td>Market Value:</td>
+                      <td class="text-end" [ngClass]="{ 'positive' : lsp.change > 0,'negative' :  lsp.change < 0}" >{{lsp.marketValue.toFixed(2)}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+              <div text-end>
+                <button type="button" class="btn btn-primary me-3" (click)="openModal(lsp.folioTicker, 'buy')"> Buy
+                </button>
+                <button type="button" class="btn btn-danger" (click)="openModal(lsp.folioTicker, 'sell')"> Sell
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+
+.positive {
+    color: green;
+  }
+  
+.negative {
+color: red;
+}
+.container {
+    max-width: 1145px;
+}

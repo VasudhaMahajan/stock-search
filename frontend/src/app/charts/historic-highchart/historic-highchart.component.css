@@ -1,0 +1,15 @@
+
+.recom-history-chart {
+    width: 520px;
+    height: 405px;
+    display: block;
+  }
+  
+@media (max-width: 550px) {
+
+    .recom-history-chart {
+        width: 350px;
+        height: 330px;
+        display: block;
+    }
+}

@@ -1,0 +1,133 @@
+.card {
+  flex-direction: row;
+  align-items: center;
+}
+
+.card img {
+  width: 30%;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.search-button:focus{
+  outline: none;
+  box-shadow: none;
+}
+/* .card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+
+  @include media-breakpoint-only(xl) {
+    column-count: 2;
+  }
+} */
+
+.row {
+  margin: 0 auto;
+}
+
+/* h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+} */
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.search-bar-border {
+  border-radius: 2em;
+  border: #1e20a1 solid;
+}
+
+.btn-close {
+  color: rgb(34, 36, 171);
+}
+
+.btn-close-color {
+  color: rgb(34, 36, 171)
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.myControl:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.container {
+  max-width: 1145px;
+}
+
+.highcharts-container {
+  width: 100% !important;
+}
+
+.highcharts-root {
+  width: 100% !important;
+}
+
+@media (max-width: 550px) {
+  .fav svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  .h1 {
+    font-size: 26px;
+  }
+
+  .h3 {
+    font-size: 18px;
+  }
+
+  img {
+    width: 48px;
+  }
+}
+
+@media (min-width: 810px) {
+  img {
+    width: 56%;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 810px) {
+  img {
+    width: 44%;
+  }
+}
